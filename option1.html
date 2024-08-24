@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Average Grade Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body1>
+  <h1>Average Grade Calculator</h1>
+  <!-- Calculator -->
+  <p2>The Grade Average Calculator is a simple tool that helps you calculate your average and track your academic performance.</p2>
+  <p2>----</p2>
+  <label for="grades">Enter your grades (separated by commas):</label><br>
+  <input type="text" id="grades" name="grades"><br><br>
+  <button onclick="calculateAverage()">Calculate Average</button>
+  <p id="average">Average Grade: </p>
+  <script>
+    function calculateAverage() {
+      var gradesInput = document.getElementById("grades").value;
+      var grades = gradesInput.split(",");
+      var sum = 0;
+      for (var i = 0; i < grades.length; i++) {
+        sum += parseFloat(grades[i].trim()); 
+      }
+      var average = sum / grades.length;
+      document.getElementById("average").innerHTML = "Average Grade: " + average.toFixed(2); // Display with 2 decimal places
+    }
+  </script>
+  <!-- Calculator -->
+</body1>
+</html>

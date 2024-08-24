@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>GPA Calculator</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+<body1>
+  <h1>Find Your Unweighted GPA</h1>
+  <!-- GPA CALC CODE -->
+  <p2>You can use this calculator to find out your unweighted GPA</p2>
+  <p2>----</p2>
+  <label for="grades">Enter your grades (separated by commas):</label><br>
+  <input type="text" id="grades" name="grades"><br><br>
+  <button onclick="calculateGPA()">Calculate GPA</button>
+  <p id="gpa">Unweighted GPA: </p>
+  <script>
+    function calculateGPA() {
+      var gradesInput = document.getElementById("grades").value;
+      var grades = gradesInput.split(",");
+      var sum = 0;
+      var count = 0;
+      
+      for (var i = 0; i < grades.length; i++) {
+        var grade = parseFloat(grades[i].trim());
+            if (!isNaN(grade) && grade >= 0) {
+              var gpaPoint = grade >= 100 ? 4 : grade / 25;
+              sum += gpaPoint;
+              count++;
+            } else {
+              alert("Invalid grade: " + grades[i]);
+            }
+          }
+
+          var gpa = sum / count;
+          document.getElementById("gpa").innerHTML = "Unweighted GPA: " + gpa.toFixed(2);
+        }
+  </script>
+  <!-- GPA CALC CODE -->
+</body1>
+</html>
